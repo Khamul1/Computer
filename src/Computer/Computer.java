@@ -48,18 +48,30 @@ public class Computer {
     public Computer() {
     }
     public void launch(boolean value) {
+
+        boolean canWork = true;
+
         if (CPU == null) {
+            canWork = false;
             System.out.println("Процессор выключен, компьютер не включится");
         }
-        else if (monitor == null) {
+
+        if (monitor == null) {
+            canWork = false;
             System.out.println("Монитор выключен, компьютер не включится");
         }
-        else if (mouse == null) {
+
+        if (mouse == null) {
+            canWork = false;
             System.out.println("Мышь выключена, компьютер не включится");
         }
-        else if  (keyboard == null) {
+
+        if  (keyboard == null) {
+            canWork = false;
             System.out.println("Клавиатура выключена, компьютер не включится");
-        } else {
+        }
+
+        if (canWork) {
             System.out.println("Компьютер включился");
             System.out.println("Monitor: " + monitor);
             System.out.println("CPU: " + CPU);
